@@ -1,23 +1,36 @@
 import React from 'react'
-import { useSelector} from 'react-redux';
+import "./AddCity.css"
+import { useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchWeatherAction} from '../redux/slices/weatherSlices'
+import { useLocalStorage } from "../AddCity/useLocalStorage";
 
-
-function Fullinfo() {
+function AddCity() {
+    const [name, setName] = useLocalStorage("name", "");
+  //dispatch action
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchWeatherAction())
+  },[])
   
-    const state = useSelector((state)=>state)
-    const {weather, loading, error}=state
-    console.log(state)
-    return (
-        <section >
+  const state = useSelector((state)=>state)
+  const {weather, loading, error}=state
+  console.log(state)
+  return (
+      <section >
+          <h2 > Add City</h2> 
+          <input value={name}
+          onClick={()=>dispatch(fetchWeatherAction(name))}
+          onChange={e=>setName(e.target.value)}
+            placeholder="Write a city + click"
+          ></input>
         {loading ? (<h1>Loading please wait...</h1>) :error ? (<h1>{error?.message}</h1>) :(
           <div >
           <div >
             <div >
               <div >
                 <div >
-                <h2>Weather App</h2>
                   <span >
-                    {/* weather logo */}
                     <img
                         src={`https://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
                         alt="/"
@@ -48,8 +61,7 @@ function Fullinfo() {
      
         ) }
          </section>
-    )
-  }
+  );
+}
 
-
-export default Fullinfo
+export default AddCity

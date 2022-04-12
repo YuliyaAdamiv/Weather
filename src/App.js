@@ -1,4 +1,5 @@
-import Card from './components/Card/Card'
+import MainPage from './components/MainPage/MainPage'
+import AddCity from './components/AddCity/AddCity'
 import Fullinfo from './components/Card/Fullinfo'
 import './App.css';
 import {
@@ -11,10 +12,11 @@ function App() {
   
   return (
     <div className="App">
-    <h2>Weather App</h2>
     <Switch>
-            <Route path='/1' component={Card}  />
-            <Route path='/some-route' component={Fullinfo} />
+             {/* <Route path='/' component={MainPage} /> */}
+            <Route path='/MainPage' component={MainPage}  />   
+            <Route path='/card/:id' component={Fullinfo} />
+            <Route path='/add_city' component={AddCity} />
     </Switch>
     </div>
     );
