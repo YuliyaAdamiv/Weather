@@ -6,14 +6,22 @@ import './MainPage.css';
 
 
 function MainPage() {
-    
+  const defaultCities = [
+    { name: 'London' },
+    { name: 'Paris' },
+    { name: 'Tokyo' },
+    { name: 'Kiev' }
+   ];
+   //localstorage add default cities
+   //const city = default
+   //if localstorage contains name get list
+   //if localstorage not contains name get default
   return (
     <div className="App">
     <h2>Weather App</h2>
-    <Card name="London" id='1'/>
-    <Card name="Paris" id='2'/>
-    <Card name="Tokyo" id='3'/>
-    <Card name="Kiev" id='4'/>
+    {defaultCities.map(item => {
+        return <Card key={item.name} name={item.name}/>
+      })}
     <Link to="/add_city"><button className="btn">Add city</button></Link>
     </div>
     );

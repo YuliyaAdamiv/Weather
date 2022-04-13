@@ -13,9 +13,9 @@ function App() {
   return (
     <div className="App">
     <Switch>
-             {/* <Route path='/' component={MainPage} /> */}
+            <Route exact path='/' component={MainPage} /> 
             <Route path='/MainPage' component={MainPage}  />   
-            <Route path='/card/:id' component={Fullinfo} />
+            <Route path='/card/:name' component={Fullinfo} />
             <Route path='/add_city' component={AddCity} />
     </Switch>
     </div>

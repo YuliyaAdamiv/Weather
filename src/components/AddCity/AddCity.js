@@ -1,21 +1,20 @@
 import React from 'react'
 import "./AddCity.css"
 import { useEffect } from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {fetchWeatherAction} from '../redux/slices/weatherSlices'
 import { useLocalStorage } from "../AddCity/useLocalStorage";
+import Fullinfo from '../Card/Fullinfo';
 
-function AddCity() {
+function AddCity(props) {
     const [name, setName] = useLocalStorage("name", "");
   //dispatch action
   const dispatch = useDispatch()
   useEffect(()=>{
-    dispatch(fetchWeatherAction())
-  },[])
+      dispatch(fetchWeatherAction(props.name))
+    },[])
   
-  const state = useSelector((state)=>state)
-  const {weather, loading, error}=state
-  console.log(state)
+  // const weather = useSelector((state)=> state.weather[props.name]) || {};
   return (
       <section >
           <h2 > Add City</h2> 
@@ -24,7 +23,8 @@ function AddCity() {
           onChange={e=>setName(e.target.value)}
             placeholder="Write a city + click"
           ></input>
-        {loading ? (<h1>Loading please wait...</h1>) :error ? (<h1>{error?.message}</h1>) :(
+          <Fullinfo/>
+        {/* {loading ? (<h1>Loading please wait...</h1>) :error ? (<h1>{error?.message}</h1>) :(
           <div >
           <div >
             <div >
@@ -59,7 +59,7 @@ function AddCity() {
           </div>
         </div>
      
-        ) }
+        ) } */}
          </section>
   );
 }
