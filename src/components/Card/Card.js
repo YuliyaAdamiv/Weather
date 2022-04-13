@@ -36,7 +36,7 @@ function Card(props) {
             {list.map(item => {
         return (
           <>
-           <button className="btn" onClick={ refreshPage }>Update <br/>weather</button>
+            <img className="refresh" onClick={ refreshPage } src="http://cdn.onlinewebfonts.com/svg/img_321592.png"/>
             <button className="card" onClick={handleClick}>
             <p>{props.name}</p>
             <p >
