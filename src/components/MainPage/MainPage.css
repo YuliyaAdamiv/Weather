@@ -23,4 +23,7 @@
     display:block;
     margin-left: 25%;
   }
+  span{
+    cursor: pointer;
+  }
   
