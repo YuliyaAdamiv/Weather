@@ -7,28 +7,8 @@ import { useHistory } from 'react-router-dom';
 
 
 function Card(props) {
-//     const [name, setName] = useLocalStorage("name", "");
-//     console.log(name);
-// const defaultList = [
-//      { name: 'London' },
-//      { name: 'Paris' },
-//      { name: 'Tokyo' },
-//      { name: 'Kiev' }
-//     ];
-//     const [list, updateList] = useState(defaultList);
-//     if (name !== null){
-//         defaultList.push({name: name});
-//     }
-//     console.log(defaultList)
-   
-
-// const handleRemoveItem = (e) => {
-// const name = e.target.getAttribute("name")
-//         updateList(list.filter(item => item.name !== name));
-//       };
 const history = useHistory();
 const handleClick = () => history.push('/card/'+props.name)
-  //dispatch action
 const dispatch = useDispatch()
 useEffect(()=>{
     dispatch(fetchWeatherAction(props.name))
@@ -37,15 +17,9 @@ useEffect(()=>{
 function refreshPage(){ 
     window.location.reload(); 
 }
-  //select state from store
-  const weather = useSelector((state)=> state.weather[props.name]) || {};
-
-//   const weather = useSelector((state)=> state.weather[props.name]) || {};
+const weather = useSelector((state)=> state.weather[props.name]) || {};
 return (
     <div>
-           
-       
-         
             <img className="refresh" onClick={ refreshPage } src="http://cdn.onlinewebfonts.com/svg/img_321592.png"/>
             <button className="card" onClick={handleClick}>
             <p>{props.name}</p>
@@ -54,10 +28,7 @@ return (
                 <span >°C</span>
             </p>
             </button>
-            {/* <span name={props.name} className="span" onClick={handleRemoveItem}> */}
-              x
-            {/* </span> */}
-    
+            
     </div>
     
   );
