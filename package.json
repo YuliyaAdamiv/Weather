@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://yuliyaadamiv.github.io/Weather/",
+  "homepage": "https://yuliyaadamiv.github.io/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
