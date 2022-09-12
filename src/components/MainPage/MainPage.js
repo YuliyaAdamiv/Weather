@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom/cjs/react-router-dom.min';
 import Card from '../Card/Card';
+import Header from '../Header/Header';
 import './MainPage.css';
 
 function MainPage() {
@@ -17,14 +18,17 @@ function MainPage() {
   }
 
   return (
-    <div className="App">
+    <div>
       <h2>Weather App</h2>
-      {cities.map((item) => {
-        return <Card key={item.name} name={item.name} />;
-      })}
-      <Link to="/add_city">
-        <button className="btn">Add city</button>
-      </Link>
+      <Header />
+      <div className="App">
+        {cities.map((item) => {
+          return <Card key={item.name} name={item.name} />;
+        })}
+        <Link to="/add_city">
+          <button className="btn">Add city</button>
+        </Link>
+      </div>
     </div>
   );
 }

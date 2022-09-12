@@ -13,13 +13,11 @@ function AddCity() {
   const history = useHistory();
 
   let weather = useSelector((state) => state.weather[name])?.payload || {};
-
   useEffect(() => {
     dispatch(fetchWeatherAction(name));
   }, []);
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     setName(e.target.value);
     dispatch(fetchWeatherAction(e.target.value));
   };
@@ -28,7 +26,6 @@ function AddCity() {
     var cities = JSON.parse(localStorage.getItem('cities'));
     cities.push({name: name});
     localStorage.setItem('cities', JSON.stringify(cities));
-    console.log(cities);
     history.push('/', {cities});
   };
 
@@ -48,7 +45,7 @@ function AddCity() {
         Add
       </button>
       {weather?.loading || !Object.keys(weather).length ? (
-        <h1>Loading please wait...</h1>
+        <h1>Enter the city...</h1>
       ) : weather?.error ? (
         <h1>{weather?.error?.message}</h1>
       ) : (

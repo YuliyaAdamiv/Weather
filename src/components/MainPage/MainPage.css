@@ -1,29 +1,44 @@
-.card{
-    border: 2px solid blue;
-    width: 50%;
-    background-color: #61dafb;
-    color:blue;
-    cursor: pointer;
-    margin: 20px;
-    font-size:20px;
-    font-weight: bold;
-  }
-  .btn{
-    font-size:20px;
-    font-weight: bold;
-    color:blue;
-    background-color: white;
-    border: 1px solid blue;
-    cursor: pointer;
-    margin-right: 20px;
-  }
-  .refresh{
-    width: 20px;
-    height: 20px;
-    display:block;
-    margin-left: 25%;
-  }
-  span{
-    cursor: pointer;
-  }
-  
+.card {
+  border: 2px solid blue;
+  width: 50%;
+  background-color: #61dafb;
+  color: blue;
+  cursor: pointer;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.card-header {
+  border: 2px solid #61dafb;
+  width: 90%;
+  background-color: #61dafb;
+  color: white;
+  cursor: pointer;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.btn {
+  font-size: 20px;
+  font-weight: bold;
+  color: blue;
+  background-color: white;
+  border: 1px solid blue;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.refresh {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin-left: 25%;
+}
+span {
+  cursor: pointer;
+}
