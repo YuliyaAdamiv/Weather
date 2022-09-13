@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom/cjs/react-router-dom.min';
 import Card from '../Card/Card';
 import Header from '../Header/Header';
+import CurrentWeatherData from '../CurrentWeatherData/CurrentWeatherData';
 import './MainPage.css';
 
 function MainPage() {
@@ -20,6 +21,7 @@ function MainPage() {
   return (
     <div>
       <h2>Weather App</h2>
+      <CurrentWeatherData />
       <Header />
       <div className="App">
         {cities.map((item) => {
